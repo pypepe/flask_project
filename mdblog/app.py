@@ -20,3 +20,7 @@ def view_about():
 @flask_app.route("/admin/")
 def view_admin():
     return render_template("admin.jinja")
+
+@flask_app.route("/articles/")
+def view_articles():
+    return render_template("articles.jinja")
