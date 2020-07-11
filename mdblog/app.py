@@ -57,7 +57,7 @@ def view_articles():
 def add_article():
     db = get_db()
     db.execute('insert into articles (title, content) values(?, ?)',
-     [request.form.get('title'), request.form.get('content')])
+        [request.form.get('title'), request.form.get('content')])
     db.commit()
     return redirect(url_for('view_articles'))
 
@@ -97,7 +97,9 @@ def logout_user():
 
 # UTILS
 def connect_db():
+    print('##############', type(flask_app.config['DATABASE']))
     rv = sqlite3.connect(flask_app.config['DATABASE'])
+    # rv = sqlite3.connect(DATABASE)
     rv.row_factory = sqlite3.Row
     return rv
 
